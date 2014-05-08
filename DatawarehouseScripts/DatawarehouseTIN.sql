@@ -7,37 +7,15 @@ CREATE SCHEMA IF NOT EXISTS `ProyectoTIN` DEFAULT CHARACTER SET utf8 COLLATE utf
 USE `ProyectoTIN` ;
 
 -- -----------------------------------------------------
--- Table `ProyectoTIN`.`projects`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `ProyectoTIN`.`projects` ;
-
-CREATE TABLE IF NOT EXISTS `ProyectoTIN`.`projects` (
-  `project_id` INT NOT NULL,
-  `date_registered` DATE NULL,
-  `project_long_name` VARCHAR(45) NULL,
-  `developers_count` INT NULL,
-  `description` VARCHAR(300) NULL,
-  PRIMARY KEY (`project_id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `ProyectoTIN`.`project_sources`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `ProyectoTIN`.`project_sources` ;
 
 CREATE TABLE IF NOT EXISTS `ProyectoTIN`.`project_sources` (
-  `projects_project_id` INT NOT NULL,
-  `project_source_id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `project_source_name` VARCHAR(45) NULL,
   `project_source_url` VARCHAR(45) NULL,
-  PRIMARY KEY (`projects_project_id`, `project_source_id`),
-  INDEX `fk_project_sources_projects1_idx` (`projects_project_id` ASC),
-  CONSTRAINT `fk_project_sources_projects1`
-    FOREIGN KEY (`projects_project_id`)
-    REFERENCES `ProyectoTIN`.`projects` (`project_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
@@ -47,18 +25,10 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `ProyectoTIN`.`project_intended_audiences` ;
 
 CREATE TABLE IF NOT EXISTS `ProyectoTIN`.`project_intended_audiences` (
-  `projects_project_id` INT NOT NULL,
-  `project_intended_audience_id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `code` VARCHAR(45) NULL,
   `description` VARCHAR(45) NULL,
-  `date_collected` DATE NULL,
-  PRIMARY KEY (`projects_project_id`, `project_intended_audience_id`),
-  INDEX `fk_project_intended_audiences_projects1_idx` (`projects_project_id` ASC),
-  CONSTRAINT `fk_project_intended_audiences_projects1`
-    FOREIGN KEY (`projects_project_id`)
-    REFERENCES `ProyectoTIN`.`projects` (`project_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
@@ -68,18 +38,10 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `ProyectoTIN`.`project_programming_languages` ;
 
 CREATE TABLE IF NOT EXISTS `ProyectoTIN`.`project_programming_languages` (
-  `projects_project_id` INT NOT NULL,
-  `project_programming_language_id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `code` VARCHAR(45) NULL,
   `description` VARCHAR(45) NULL,
-  `date_collected` DATE NULL,
-  PRIMARY KEY (`projects_project_id`, `project_programming_language_id`),
-  INDEX `fk_project_programming_languages_projects1_idx` (`projects_project_id` ASC),
-  CONSTRAINT `fk_project_programming_languages_projects1`
-    FOREIGN KEY (`projects_project_id`)
-    REFERENCES `ProyectoTIN`.`projects` (`project_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
@@ -89,17 +51,12 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `ProyectoTIN`.`project_date` ;
 
 CREATE TABLE IF NOT EXISTS `ProyectoTIN`.`project_date` (
-  `projects_project_id` INT NOT NULL,
-  `project_date_id` INT NOT NULL,
-  `date_registered` VARCHAR(45) NULL,
-  `date_collected` DATE NULL,
-  PRIMARY KEY (`projects_project_id`, `project_date_id`),
-  INDEX `fk_project_date_projects_idx` (`projects_project_id` ASC),
-  CONSTRAINT `fk_project_date_projects`
-    FOREIGN KEY (`projects_project_id`)
-    REFERENCES `ProyectoTIN`.`projects` (`project_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `date_registered` TIMESTAMP NULL,
+  `day` INT NULL,
+  `month` INT NULL,
+  `year` INT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
@@ -109,18 +66,10 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `ProyectoTIN`.`project_licenses` ;
 
 CREATE TABLE IF NOT EXISTS `ProyectoTIN`.`project_licenses` (
-  `projects_project_id` INT NOT NULL,
-  `project_license_id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `code` VARCHAR(45) NULL,
   `description` VARCHAR(45) NULL,
-  `date_collected` VARCHAR(45) NULL,
-  PRIMARY KEY (`projects_project_id`, `project_license_id`),
-  INDEX `fk_project_licenses_projects1_idx` (`projects_project_id` ASC),
-  CONSTRAINT `fk_project_licenses_projects1`
-    FOREIGN KEY (`projects_project_id`)
-    REFERENCES `ProyectoTIN`.`projects` (`project_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
@@ -130,16 +79,64 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `ProyectoTIN`.`project_operating_systems` ;
 
 CREATE TABLE IF NOT EXISTS `ProyectoTIN`.`project_operating_systems` (
-  `projects_project_id` INT NOT NULL,
-  `project_operating_system_id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `code` VARCHAR(45) NULL,
   `description` VARCHAR(45) NULL,
-  `date_collected` DATE NULL,
-  PRIMARY KEY (`projects_project_id`, `project_operating_system_id`),
-  INDEX `fk_project_operating_systems_projects1_idx` (`projects_project_id` ASC),
-  CONSTRAINT `fk_project_operating_systems_projects1`
-    FOREIGN KEY (`projects_project_id`)
-    REFERENCES `ProyectoTIN`.`projects` (`project_id`)
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ProyectoTIN`.`projects`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `ProyectoTIN`.`projects` ;
+
+CREATE TABLE IF NOT EXISTS `ProyectoTIN`.`projects` (
+  `project_id` INT NOT NULL AUTO_INCREMENT,
+  `project_long_name` VARCHAR(45) NULL,
+  `developers_count` INT NULL,
+  `description` VARCHAR(300) NULL,
+  `project_date_id` INT NOT NULL,
+  `project_sources_id` INT NOT NULL,
+  `project_licenses_id` INT NOT NULL,
+  `project_intended_audiences_id` INT NOT NULL,
+  `project_programming_languages_id` INT NOT NULL,
+  `project_operating_systems_id` INT NOT NULL,
+  PRIMARY KEY (`project_id`),
+  INDEX `fk_projects_project_date_idx` (`project_date_id` ASC),
+  INDEX `fk_projects_project_sources1_idx` (`project_sources_id` ASC),
+  INDEX `fk_projects_project_licenses1_idx` (`project_licenses_id` ASC),
+  INDEX `fk_projects_project_intended_audiences1_idx` (`project_intended_audiences_id` ASC),
+  INDEX `fk_projects_project_programming_languages1_idx` (`project_programming_languages_id` ASC),
+  INDEX `fk_projects_project_operating_systems1_idx` (`project_operating_systems_id` ASC),
+  CONSTRAINT `fk_projects_project_date`
+    FOREIGN KEY (`project_date_id`)
+    REFERENCES `ProyectoTIN`.`project_date` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_projects_project_sources1`
+    FOREIGN KEY (`project_sources_id`)
+    REFERENCES `ProyectoTIN`.`project_sources` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_projects_project_licenses1`
+    FOREIGN KEY (`project_licenses_id`)
+    REFERENCES `ProyectoTIN`.`project_licenses` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_projects_project_intended_audiences1`
+    FOREIGN KEY (`project_intended_audiences_id`)
+    REFERENCES `ProyectoTIN`.`project_intended_audiences` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_projects_project_programming_languages1`
+    FOREIGN KEY (`project_programming_languages_id`)
+    REFERENCES `ProyectoTIN`.`project_programming_languages` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_projects_project_operating_systems1`
+    FOREIGN KEY (`project_operating_systems_id`)
+    REFERENCES `ProyectoTIN`.`project_operating_systems` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
