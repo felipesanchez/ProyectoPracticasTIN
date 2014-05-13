@@ -2,7 +2,6 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-DROP SCHEMA IF EXISTS `ProyectoTIN` ;
 CREATE SCHEMA IF NOT EXISTS `ProyectoTIN` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 USE `ProyectoTIN` ;
 
@@ -96,12 +95,12 @@ CREATE TABLE IF NOT EXISTS `ProyectoTIN`.`projects` (
   `project_long_name` VARCHAR(45) NULL,
   `developers_count` INT NULL,
   `description` VARCHAR(300) NULL,
-  `project_date_id` INT NOT NULL,
-  `project_sources_id` INT NOT NULL,
-  `project_licenses_id` INT NOT NULL,
-  `project_intended_audiences_id` INT NOT NULL,
-  `project_programming_languages_id` INT NOT NULL,
-  `project_operating_systems_id` INT NOT NULL,
+  `project_date_id` INT NULL,
+  `project_sources_id` INT NULL,
+  `project_licenses_id` INT NULL,
+  `project_intended_audiences_id` INT NULL,
+  `project_programming_languages_id` INT NULL,
+  `project_operating_systems_id` INT NULL,
   PRIMARY KEY (`project_id`),
   INDEX `fk_projects_project_date_idx` (`project_date_id` ASC),
   INDEX `fk_projects_project_sources1_idx` (`project_sources_id` ASC),
