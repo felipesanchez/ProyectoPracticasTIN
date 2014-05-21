@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
-  <name>ConexionOS</name>
+  <name>ConexionOW</name>
     <description/>
     <extended_description/>
     <job_version/>
+    <job_status>0</job_status>
   <directory>&#x2f;</directory>
   <created_user>-</created_user>
   <created_date>2014&#x2f;05&#x2f;21 13&#x3a;17&#x3a;22.542</created_date>
@@ -19,7 +20,7 @@
     <database>mysql</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afbc03c59d96a40aa5698fcbf68a</password>
+    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -43,10 +44,10 @@
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>OW</database>
+    <database>ow</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afbc03c59d96a40aa5698fcbf68a</password>
+    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -106,17 +107,17 @@
       <yloc>186</yloc>
       </entry>
     <entry>
-      <name>Conexion con OS</name>
+      <name>Conexion con OW</name>
       <description/>
       <type>CHECK_DB_CONNECTIONS</type>
       <connections>
         <connection>
-          <name>ObjectWeb</name>
+          <name>general</name>
           <waitfor>0</waitfor>
-          <waittime>second</waittime>
+          <waittime>millisecond</waittime>
         </connection>
         <connection>
-          <name>general</name>
+          <name>ObjectWeb</name>
           <waitfor>0</waitfor>
           <waittime>millisecond</waittime>
         </connection>
@@ -128,13 +129,13 @@
       <yloc>187</yloc>
       </entry>
     <entry>
-      <name>Creaci&#xf3;n BaseDatos</name>
+      <name>Creaci&#xf3;n BaseDatos de OW</name>
       <description/>
       <type>SQL</type>
-      <sql>CREATE DATABASE  IF NOT EXISTS ow&#x3b;&#xd;&#xa;USE ow&#x3b;</sql>
+      <sql/>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>C&#x3a;&#x5c;Users&#x5c;Vito&#x5c;Documents&#x5c;ProyectoPracticasTIN&#x5c;SpoonTransformation&#x5c;datasources&#x5c;datamartOWcompleto.sql</sqlfilename>
+      <sqlfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;datasources&#x2f;datamartOWcompleto.sql</sqlfilename>
       <sendOneStatement>F</sendOneStatement>
       <connection>general</connection>
       <parallel>N</parallel>
@@ -150,14 +151,25 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>598</xloc>
-      <yloc>190</yloc>
+      <xloc>520</xloc>
+      <yloc>188</yloc>
+      </entry>
+    <entry>
+      <name>Abort job</name>
+      <description/>
+      <type>ABORT</type>
+      <message/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>501</xloc>
+      <yloc>282</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
       <from>START</from>
-      <to>Conexion con OS</to>
+      <to>Conexion con OW</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -165,8 +177,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Conexion con OS</from>
-      <to>Creaci&#xf3;n BaseDatos</to>
+      <from>Conexion con OW</from>
+      <to>Creaci&#xf3;n BaseDatos de OW</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -174,7 +186,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Conexion con OS</from>
+      <from>Conexion con OW</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -183,12 +195,21 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Creaci&#xf3;n BaseDatos</from>
+      <from>Creaci&#xf3;n BaseDatos de OW</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Creaci&#xf3;n BaseDatos de OW</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
       <unconditional>N</unconditional>
     </hop>
   </hops>

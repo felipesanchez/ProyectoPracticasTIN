@@ -51,79 +51,77 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>125</xloc>
-      <yloc>160</yloc>
+      <yloc>164</yloc>
       </entry>
     <entry>
-      <name>conexion a objectweb</name>
+      <name>conexion a OW</name>
       <description/>
-      <type>TRANS</type>
+      <type>JOB</type>
       <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;ConexionOW.ktr</filename>
-      <transname/>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;ConexionOW.kjb</filename>
+      <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
       <logfile/>
       <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
+      <loglevel>Nothing</loglevel>
       <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
+      <pass_export>N</pass_export>
+      <force_separate_logging>N</force_separate_logging>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>256</xloc>
-      <yloc>163</yloc>
+      <xloc>283</xloc>
+      <yloc>164</yloc>
       </entry>
     <entry>
-      <name>conexion a sourceforge</name>
+      <name>conexion a SF</name>
       <description/>
-      <type>TRANS</type>
+      <type>JOB</type>
       <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;ConexionSF.ktr</filename>
-      <transname/>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;ConexionSF.kjb</filename>
+      <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
       <logfile/>
       <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
+      <loglevel>Nothing</loglevel>
       <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
+      <pass_export>N</pass_export>
+      <force_separate_logging>N</force_separate_logging>
       <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>396</xloc>
+      <xloc>450</xloc>
       <yloc>164</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
       <from>START</from>
-      <to>conexion a objectweb</to>
+      <to>conexion a OW</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -131,11 +129,11 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>conexion a objectweb</from>
-      <to>conexion a sourceforge</to>
+      <from>conexion a OW</from>
+      <to>conexion a SF</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
     </hop>
