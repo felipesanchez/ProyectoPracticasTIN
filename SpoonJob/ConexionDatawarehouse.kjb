@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
-  <name>ConexionBDs</name>
+  <name>ConexionDatawarehouse</name>
     <description/>
     <extended_description/>
     <job_version/>
+    <job_status>0</job_status>
   <directory>&#x2f;</directory>
   <created_user>-</created_user>
   <created_date>2014&#x2f;05&#x2f;21 20&#x3a;31&#x3a;44.516</created_date>
