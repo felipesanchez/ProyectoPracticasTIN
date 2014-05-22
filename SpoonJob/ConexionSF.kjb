@@ -142,7 +142,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>887</xloc>
+      <xloc>775</xloc>
       <yloc>216</yloc>
       </entry>
     <entry>
@@ -153,8 +153,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>245</xloc>
-      <yloc>338</yloc>
+      <xloc>436</xloc>
+      <yloc>344</yloc>
       </entry>
     <entry>
       <name>Prueba conexion SF remota</name>
@@ -166,23 +166,23 @@
           <waitfor>0</waitfor>
           <waittime>millisecond</waittime>
         </connection>
-        <connection>
-          <name>General</name>
-          <waitfor>0</waitfor>
-          <waittime>millisecond</waittime>
-        </connection>
       </connections>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>245</xloc>
-      <yloc>217</yloc>
+      <xloc>440</xloc>
+      <yloc>216</yloc>
       </entry>
     <entry>
       <name>Prueba conexion SF local</name>
       <description/>
       <type>CHECK_DB_CONNECTIONS</type>
       <connections>
+        <connection>
+          <name>General</name>
+          <waitfor>0</waitfor>
+          <waittime>millisecond</waittime>
+        </connection>
         <connection>
           <name>SourceForgeLocal</name>
           <waitfor>0</waitfor>
@@ -192,7 +192,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>532</xloc>
+      <xloc>214</xloc>
       <yloc>216</yloc>
       </entry>
     <entry>
@@ -208,29 +208,43 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>528</xloc>
-      <yloc>343</yloc>
+      <xloc>213</xloc>
+      <yloc>342</yloc>
+      </entry>
+    <entry>
+      <name>VolcadoDatosSF</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;VolcadoDatosSF.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <force_separate_logging>N</force_separate_logging>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>624</xloc>
+      <yloc>213</yloc>
       </entry>
   </entries>
   <hops>
-    <hop>
-      <from>Prueba conexion SF remota</from>
-      <to>Prueba conexion SF local</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Prueba conexion SF local</from>
-      <to>Success</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
     <hop>
       <from>Prueba conexion SF remota</from>
       <to>Abort job</to>
@@ -250,8 +264,17 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
+      <from>START</from>
+      <to>Prueba conexion SF local</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
       <from>SQL Crear Base de datos</from>
-      <to>Success</to>
+      <to>Prueba conexion SF remota</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -259,13 +282,31 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>START</from>
+      <from>Prueba conexion SF remota</from>
+      <to>VolcadoDatosSF</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Prueba conexion SF local</from>
       <to>Prueba conexion SF remota</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>VolcadoDatosSF</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
     </hop>
   </hops>
   <notepads>
