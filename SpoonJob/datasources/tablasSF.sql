@@ -115,7 +115,6 @@ DROP TABLE IF EXISTS `sf_projects`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sf_projects` (
   `proj_unixname` varchar(100) NOT NULL,
-  `datasource_id` int(11) NOT NULL,
   `forge_id` int(11) NOT NULL,
   `url` varchar(255) DEFAULT NULL,
   `real_url` varchar(255) DEFAULT NULL,
@@ -130,6 +129,7 @@ CREATE TABLE `sf_projects` (
   `pageviews_all_time` bigint(10) DEFAULT NULL,
   `takesdonations` varchar(1) DEFAULT NULL,
   `date_collected` datetime DEFAULT NULL,
+  `datasource_id` int(11) NOT NULL,
   PRIMARY KEY (`proj_unixname`,`datasource_id`,`forge_id`),
   KEY `datasource_id_index37` (`datasource_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
