@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>VolcarDatosProject_description</name>
+    <name>VolcarDatosProject_Licenses</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -67,9 +67,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2014&#x2f;05&#x2f;21 22&#x3a;22&#x3a;56.449</created_date>
+  <created_date>2014&#x2f;05&#x2f;21 20&#x3a;12&#x3a;16.363</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;05&#x2f;21 22&#x3a;22&#x3a;56.449</modified_date>
+  <modified_date>2014&#x2f;05&#x2f;21 20&#x3a;12&#x3a;16.363</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -108,7 +108,7 @@
     <database>sf</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afbc03c59d96a40aa5698fcbf68a</password>
+    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -128,11 +128,11 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Table input</from><to>Select values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table input SF_project_licenses</from><to>Select values sf_project_licenses</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values sf_project_licenses</from><to>Table  output sf_project_licenses local</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Select values</name>
+    <name>Select values sf_project_licenses</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -142,7 +142,11 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>porj_unixname</name>
+    <fields>      <field>        <name>proj_unixname</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>code</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -150,51 +154,25 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>datasource_id</name>
+      </field>      <field>        <name>date_collected</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>date_collected</name>
+      </field>      <field>        <name>datasource_id</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>406</xloc>
-      <yloc>155</yloc>
+      <xloc>328</xloc>
+      <yloc>117</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table input</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>SourceForge</connection>
-    <sql>SELECT distinct&#xd;&#xa;&#xd;&#xa;	sf_project_description.proj_unixname as proj_unixname,&#xd;&#xa;	sf_project_description.description as description,&#xd;&#xa;	sf_project_description.date_collected as date_collected,&#xd;&#xa;	sf_project_description.datasource_id as datasource_id&#xd;&#xa;&#xd;&#xa;FROM  sf_project_description</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>230</xloc>
-      <yloc>159</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Table output</name>
+    <name>Table  output sf_project_licenses local</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -205,8 +183,8 @@
            <schema_name/>
            </partitioning>
     <connection>SourceForgeLocal</connection>
-    <schema/>
-    <table/>
+    <schema>sf</schema>
+    <table>sf_project_licenses</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -227,22 +205,52 @@
           <stream_name>proj_unixname</stream_name>
         </field>
         <field>
-          <column_name>description</column_name>
-          <stream_name>description</stream_name>
+          <column_name>code</column_name>
+          <stream_name>code</stream_name>
         </field>
         <field>
-          <column_name>datasource_id</column_name>
-          <stream_name>datasource_id</stream_name>
+          <column_name>description</column_name>
+          <stream_name>description</stream_name>
         </field>
         <field>
           <column_name>date_collected</column_name>
           <stream_name>date_collected</stream_name>
         </field>
+        <field>
+          <column_name>datasource_id</column_name>
+          <stream_name>datasource_id</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>586</xloc>
-      <yloc>156</yloc>
+      <xloc>558</xloc>
+      <yloc>117</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table input SF_project_licenses</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>SourceForge</connection>
+    <sql>SELECT distinct&#xd;&#xa;  proj_unixname&#xd;&#xa;, code&#xd;&#xa;, description&#xd;&#xa;, date_collected&#xd;&#xa;, datasource_id&#xd;&#xa;FROM sf_project_licenses&#xd;&#xa;</sql>
+    <limit>10000</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>102</xloc>
+      <yloc>117</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

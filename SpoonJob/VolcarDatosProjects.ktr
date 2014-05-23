@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>VolcarDatosProject_intended_audience</name>
+    <name>VolcarDatosProjects</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -108,7 +108,7 @@
     <database>sf</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afbc03c59d96a40aa5698fcbf68a</password>
+    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -128,8 +128,8 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Table input Project_intended_audience</from><to>Select values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Table output Project_intended_audience</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table input Projects</from><to>Select values</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values</from><to>Table output Projects</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Select values</name>
@@ -146,15 +146,55 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>datasource_id</name>
+      </field>      <field>        <name>forge_id</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>code</name>
+      </field>      <field>        <name>url</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>description</name>
+      </field>      <field>        <name>real_url</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>date_registered</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>proj_long_name</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>proj_description</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>proj_id_num</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>added_by_script</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>dev_count</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>lifespan</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>downloads_all_time</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>pageviews_all_time</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>takesdonations</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -162,17 +202,36 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>datasource_id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
+      <meta>        <name>takesdonations</name>
+        <rename>takesdonations</rename>
+        <type>String</type>
+        <length>1</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>407</xloc>
-      <yloc>216</yloc>
+      <xloc>357</xloc>
+      <yloc>180</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table input Project_intended_audience</name>
+    <name>Table input Projects</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -183,22 +242,22 @@
            <schema_name/>
            </partitioning>
     <connection>SourceForge</connection>
-    <sql>SELECT distinct&#xd;&#xa;&#xd;&#xa;	sf_project_intended_audience.proj_unixname as proj_unixname,&#xd;&#xa;	sf_project_intended_audience.datasource_id as datasource_id,&#xd;&#xa;	sf_project_intended_audience.code as code,&#xd;&#xa;	sf_project_intended_audience.description as description,&#xd;&#xa;	sf_project_intended_audience.date_collected as date_collected&#xd;&#xa;&#xd;&#xa;FROM  sf_project_intended_audience</sql>
-    <limit>0</limit>
+    <sql>SELECT distinct&#xd;&#xa;  proj_unixname&#xd;&#xa;, forge_id&#xd;&#xa;, url&#xd;&#xa;, real_url&#xd;&#xa;, date_registered&#xd;&#xa;, proj_long_name&#xd;&#xa;, proj_description&#xd;&#xa;, proj_id_num&#xd;&#xa;, added_by_script&#xd;&#xa;, dev_count&#xd;&#xa;, lifespan&#xd;&#xa;, downloads_all_time&#xd;&#xa;, pageviews_all_time&#xd;&#xa;, takesdonations&#xd;&#xa;, date_collected&#xd;&#xa;, datasource_id&#xd;&#xa;FROM sf_projects&#xd;&#xa;</sql>
+    <limit>10000</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>181</xloc>
-      <yloc>215</yloc>
+      <xloc>102</xloc>
+      <yloc>180</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table output Project_intended_audience</name>
+    <name>Table output Projects</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -210,7 +269,7 @@
            </partitioning>
     <connection>SourceForgeLocal</connection>
     <schema/>
-    <table>sf_project_operating_system</table>
+    <table>sf_projects</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -227,30 +286,74 @@
     <return_field/>
     <fields>
         <field>
-          <column_name>code</column_name>
-          <stream_name>code</stream_name>
-        </field>
-        <field>
-          <column_name>description</column_name>
-          <stream_name>description</stream_name>
-        </field>
-        <field>
           <column_name>proj_unixname</column_name>
           <stream_name>proj_unixname</stream_name>
         </field>
         <field>
-          <column_name>datasource_id</column_name>
-          <stream_name>datasource_id</stream_name>
+          <column_name>forge_id</column_name>
+          <stream_name>forge_id</stream_name>
+        </field>
+        <field>
+          <column_name>url</column_name>
+          <stream_name>url</stream_name>
+        </field>
+        <field>
+          <column_name>real_url</column_name>
+          <stream_name>real_url</stream_name>
+        </field>
+        <field>
+          <column_name>date_registered</column_name>
+          <stream_name>date_registered</stream_name>
+        </field>
+        <field>
+          <column_name>proj_long_name</column_name>
+          <stream_name>proj_long_name</stream_name>
+        </field>
+        <field>
+          <column_name>proj_description</column_name>
+          <stream_name>proj_description</stream_name>
+        </field>
+        <field>
+          <column_name>proj_id_num</column_name>
+          <stream_name>proj_id_num</stream_name>
+        </field>
+        <field>
+          <column_name>added_by_script</column_name>
+          <stream_name>added_by_script</stream_name>
+        </field>
+        <field>
+          <column_name>dev_count</column_name>
+          <stream_name>dev_count</stream_name>
+        </field>
+        <field>
+          <column_name>lifespan</column_name>
+          <stream_name>lifespan</stream_name>
+        </field>
+        <field>
+          <column_name>downloads_all_time</column_name>
+          <stream_name>downloads_all_time</stream_name>
+        </field>
+        <field>
+          <column_name>pageviews_all_time</column_name>
+          <stream_name>pageviews_all_time</stream_name>
+        </field>
+        <field>
+          <column_name>takesdonations</column_name>
+          <stream_name>takesdonations</stream_name>
         </field>
         <field>
           <column_name>date_collected</column_name>
           <stream_name>date_collected</stream_name>
         </field>
+        <field>
+          <column_name>datasource_id</column_name>
+          <stream_name>datasource_id</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>620</xloc>
-      <yloc>217</yloc>
+      <xloc>603</xloc>
+      <yloc>180</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
