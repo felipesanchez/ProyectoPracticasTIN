@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS `ProyectoTIN`.`project_sources` ;
 CREATE TABLE IF NOT EXISTS `ProyectoTIN`.`project_sources` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `project_source_name` VARCHAR(45) NULL,
-  `project_source_url` VARCHAR(45) NULL,
+  `project_source_url` VARCHAR(255) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS `ProyectoTIN`.`project_intended_audiences` ;
 CREATE TABLE IF NOT EXISTS `ProyectoTIN`.`project_intended_audiences` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `code` VARCHAR(45) NULL,
-  `description` VARCHAR(45) NULL,
+  `description` VARCHAR(255) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -39,7 +39,7 @@ DROP TABLE IF EXISTS `ProyectoTIN`.`project_programming_languages` ;
 CREATE TABLE IF NOT EXISTS `ProyectoTIN`.`project_programming_languages` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `code` VARCHAR(45) NULL,
-  `description` VARCHAR(45) NULL,
+  `description` VARCHAR(255) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -51,7 +51,7 @@ DROP TABLE IF EXISTS `ProyectoTIN`.`project_date` ;
 
 CREATE TABLE IF NOT EXISTS `ProyectoTIN`.`project_date` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `date_registered` TIMESTAMP NULL,
+  `date_registered` datetime NULL,
   `day` INT NULL,
   `month` INT NULL,
   `year` INT NULL,
@@ -67,7 +67,7 @@ DROP TABLE IF EXISTS `ProyectoTIN`.`project_licenses` ;
 CREATE TABLE IF NOT EXISTS `ProyectoTIN`.`project_licenses` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `code` VARCHAR(45) NULL,
-  `description` VARCHAR(45) NULL,
+  `description` VARCHAR(255) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -80,7 +80,7 @@ DROP TABLE IF EXISTS `ProyectoTIN`.`project_operating_systems` ;
 CREATE TABLE IF NOT EXISTS `ProyectoTIN`.`project_operating_systems` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `code` VARCHAR(45) NULL,
-  `description` VARCHAR(45) NULL,
+  `description` VARCHAR(255) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
