@@ -13,14 +13,14 @@
     <parameters>
     </parameters>
   <connection>
-    <name>general</name>
+    <name>General</name>
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
     <database>mysql</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+    <password>Encrypted 2be98afc86aa7f2e4ae0ba27fd59dfe8e</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -47,7 +47,7 @@
     <database>ow</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+    <password>Encrypted 2be98afc86aa7f2e4ae0ba27fd59dfe8e</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -112,7 +112,7 @@
       <type>CHECK_DB_CONNECTIONS</type>
       <connections>
         <connection>
-          <name>general</name>
+          <name>General</name>
           <waitfor>0</waitfor>
           <waittime>millisecond</waittime>
         </connection>
@@ -137,7 +137,7 @@
       <sqlfromfile>T</sqlfromfile>
       <sqlfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;datasources&#x2f;datamartOWcompleto.sql</sqlfilename>
       <sendOneStatement>F</sendOneStatement>
-      <connection>general</connection>
+      <connection>General</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>

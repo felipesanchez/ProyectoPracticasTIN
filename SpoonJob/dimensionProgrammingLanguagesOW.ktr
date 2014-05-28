@@ -80,7 +80,7 @@
     <database>proyectotin</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+    <password>Encrypted 2be98afc86aa7f2e4ae0ba27fd59dfe8e</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -107,7 +107,7 @@
     <database>ow</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+    <password>Encrypted 2be98afc86aa7f2e4ae0ba27fd59dfe8e</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -129,6 +129,32 @@
   <order>
   <hop> <from>Table input</from><to>Table output</to><enabled>Y</enabled> </hop>
   </order>
+  <step>
+    <name>Table input</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>ObjectWeb</connection>
+    <sql>SELECT distinct&#xd;&#xa;  code&#xd;&#xa;, description&#xd;&#xa;FROM ow_project_programming_language&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>109</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step>
     <name>Table output</name>
     <type>TableOutput</type>
@@ -170,32 +196,6 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>288</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Table input</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>ObjectWeb</connection>
-    <sql>SELECT distinct&#xd;&#xa;  code&#xd;&#xa;, description&#xd;&#xa;FROM ow_project_programming_language&#xd;&#xa;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>109</xloc>
       <yloc>96</yloc>
       <draw>Y</draw>
       </GUI>

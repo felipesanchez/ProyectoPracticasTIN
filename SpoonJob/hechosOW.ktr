@@ -80,7 +80,7 @@
     <database>proyectotin</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+    <password>Encrypted 2be98afc86aa7f2e4ae0ba27fd59dfe8e</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -107,7 +107,7 @@
     <database>ow</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+    <password>Encrypted 2be98afc86aa7f2e4ae0ba27fd59dfe8e</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -228,6 +228,67 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>240</xloc>
       <yloc>318</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>dia-mes-a&#xf1;o para comparar fecha</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <calculation><field_name>day</field_name>
+<calc_type>DAY_OF_MONTH</calc_type>
+<field_a>proj_date</field_a>
+<field_b/>
+<field_c/>
+<value_type>None</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>month</field_name>
+<calc_type>MONTH_OF_DATE</calc_type>
+<field_a>proj_date</field_a>
+<field_b/>
+<field_c/>
+<value_type>None</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>year</field_name>
+<calc_type>YEAR_OF_DATE</calc_type>
+<field_a>proj_date</field_a>
+<field_b/>
+<field_c/>
+<value_type>None</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>332</xloc>
+      <yloc>238</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -496,67 +557,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>448</xloc>
       <yloc>319</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>dia-mes-a&#xf1;o para comparar fecha</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <calculation><field_name>day</field_name>
-<calc_type>DAY_OF_MONTH</calc_type>
-<field_a>proj_date</field_a>
-<field_b/>
-<field_c/>
-<value_type>None</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>N</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-       <calculation><field_name>month</field_name>
-<calc_type>MONTH_OF_DATE</calc_type>
-<field_a>proj_date</field_a>
-<field_b/>
-<field_c/>
-<value_type>None</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>N</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-       <calculation><field_name>year</field_name>
-<calc_type>YEAR_OF_DATE</calc_type>
-<field_a>proj_date</field_a>
-<field_b/>
-<field_c/>
-<value_type>None</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>N</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>332</xloc>
-      <yloc>238</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
