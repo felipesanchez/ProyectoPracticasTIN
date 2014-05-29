@@ -322,7 +322,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceForge remota</connection>
-    <sql>SELECT distinct&#xd;&#xa;  proj_unixname&#xd;&#xa;, code&#xd;&#xa;, description&#xd;&#xa;, date_collected&#xd;&#xa;, datasource_id&#xd;&#xa;FROM sf_project_licenses&#xd;&#xa;</sql>
+    <sql>SELECT distinct&#xd;&#xa;  proj_unixname&#xd;&#xa;, code&#xd;&#xa;, description&#xd;&#xa;, date_collected&#xd;&#xa;, datasource_id&#xd;&#xa;FROM sf_project_licenses&#xd;&#xa;GROUP BY proj_unixname&#xd;&#xa;</sql>
     <limit>10000</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

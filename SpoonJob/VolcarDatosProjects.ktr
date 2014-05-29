@@ -88,6 +88,7 @@
     <attributes>
       <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
       <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.zeroDateTimeBehavior</code><attribute>convertToNull</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
@@ -142,6 +143,7 @@
     <attributes>
       <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
       <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.zeroDateTimeBehavior</code><attribute>convertToNull</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
@@ -169,6 +171,7 @@
     <attributes>
       <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
       <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.zeroDateTimeBehavior</code><attribute>convertToNull</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
@@ -196,6 +199,7 @@
     <attributes>
       <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
       <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.zeroDateTimeBehavior</code><attribute>convertToNull</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
@@ -209,11 +213,11 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Table input Projects</from><to>Select values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Table output Projects</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table input Projects</from><to>Select values &#x28;metadata de takesdonations&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values &#x28;metadata de takesdonations&#x29;</from><to>Table output Projects</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Select values</name>
+    <name>Select values &#x28;metadata de takesdonations&#x29;</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -323,7 +327,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceForge remota</connection>
-    <sql>SELECT distinct&#xd;&#xa;  proj_unixname&#xd;&#xa;, forge_id&#xd;&#xa;, url&#xd;&#xa;, real_url&#xd;&#xa;, date_registered&#xd;&#xa;, proj_long_name&#xd;&#xa;, proj_description&#xd;&#xa;, proj_id_num&#xd;&#xa;, added_by_script&#xd;&#xa;, dev_count&#xd;&#xa;, lifespan&#xd;&#xa;, downloads_all_time&#xd;&#xa;, pageviews_all_time&#xd;&#xa;, takesdonations&#xd;&#xa;, date_collected&#xd;&#xa;, datasource_id&#xd;&#xa;FROM sf_projects</sql>
+    <sql>SELECT distinct&#xd;&#xa;  proj_unixname&#xd;&#xa;, forge_id&#xd;&#xa;, url&#xd;&#xa;, real_url&#xd;&#xa;, date_registered&#xd;&#xa;, proj_long_name&#xd;&#xa;, proj_description&#xd;&#xa;, proj_id_num&#xd;&#xa;, added_by_script&#xd;&#xa;, dev_count&#xd;&#xa;, lifespan&#xd;&#xa;, downloads_all_time&#xd;&#xa;, pageviews_all_time&#xd;&#xa;, takesdonations&#xd;&#xa;, date_collected&#xd;&#xa;, datasource_id&#xd;&#xa;FROM sf_projects&#xd;&#xa;GROUP BY proj_unixname</sql>
     <limit>10000</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

@@ -301,7 +301,7 @@
       <name>evaluar si hay datos</name>
       <description/>
       <type>EVAL_TABLE_CONTENT</type>
-      <connection/>
+      <connection>SourceForge Local</connection>
       <schemaname/>
       <tablename>sf_projects</tablename>
       <success_condition>rows_count_greater_equal</success_condition>

@@ -264,7 +264,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceForge remota</connection>
-    <sql>SELECT distinct&#xd;&#xa;&#xd;&#xa;	sf_project_intended_audience.proj_unixname as proj_unixname,&#xd;&#xa;	sf_project_intended_audience.datasource_id as datasource_id,&#xd;&#xa;	sf_project_intended_audience.code as code,&#xd;&#xa;	sf_project_intended_audience.description as description,&#xd;&#xa;	sf_project_intended_audience.date_collected as date_collected&#xd;&#xa;&#xd;&#xa;FROM  sf_project_intended_audience</sql>
+    <sql>SELECT distinct&#xd;&#xa;&#xd;&#xa;	sf_project_intended_audience.proj_unixname as proj_unixname,&#xd;&#xa;	sf_project_intended_audience.datasource_id as datasource_id,&#xd;&#xa;	sf_project_intended_audience.code as code,&#xd;&#xa;	sf_project_intended_audience.description as description,&#xd;&#xa;	sf_project_intended_audience.date_collected as date_collected&#xd;&#xa;&#xd;&#xa;FROM  sf_project_intended_audience&#xd;&#xa;GROUP BY sf_project_intended_audience.proj_unixname</sql>
     <limit>10000</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
