@@ -92,7 +92,8 @@ DROP TABLE IF EXISTS `proyectotin`.`projects` ;
 
 CREATE TABLE IF NOT EXISTS `proyectotin`.`projects` (
   `project_id` INT NOT NULL AUTO_INCREMENT,
-  `project_long_name` VARCHAR(45) NULL,
+  `project_unixname` varchar(100) NOT NULL,
+  `project_long_name` VARCHAR(100) NULL,
   `developers_count` INT NULL,
   `description` VARCHAR(300) NULL,
   `project_date_id` INT NULL,

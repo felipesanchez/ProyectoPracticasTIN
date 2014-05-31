@@ -87,6 +87,7 @@
     <attributes>
       <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
       <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.zeroDateTimeBehavior</code><attribute>convertToNull</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
@@ -141,6 +142,7 @@
     <attributes>
       <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
       <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.zeroDateTimeBehavior</code><attribute>convertToNull</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
@@ -168,6 +170,7 @@
     <attributes>
       <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
       <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.zeroDateTimeBehavior</code><attribute>convertToNull</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
@@ -195,6 +198,7 @@
     <attributes>
       <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
       <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.zeroDateTimeBehavior</code><attribute>convertToNull</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
@@ -246,6 +250,46 @@
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
+        <field>
+          <column_name>project_long_name</column_name>
+          <stream_name>project_long_name</stream_name>
+        </field>
+        <field>
+          <column_name>project_unixname</column_name>
+          <stream_name>proj_unixname</stream_name>
+        </field>
+        <field>
+          <column_name>developers_count</column_name>
+          <stream_name>developers_count</stream_name>
+        </field>
+        <field>
+          <column_name>description</column_name>
+          <stream_name>description</stream_name>
+        </field>
+        <field>
+          <column_name>project_programming_languages_id</column_name>
+          <stream_name>project_programming_languages_id</stream_name>
+        </field>
+        <field>
+          <column_name>project_operating_systems_id</column_name>
+          <stream_name>project_operating_systems_id</stream_name>
+        </field>
+        <field>
+          <column_name>project_intended_audiences_id</column_name>
+          <stream_name>project_intended_audiences_id</stream_name>
+        </field>
+        <field>
+          <column_name>project_licenses_id</column_name>
+          <stream_name>project_licenses_id</stream_name>
+        </field>
+        <field>
+          <column_name>project_sources_id</column_name>
+          <stream_name>project_sources_id</stream_name>
+        </field>
+        <field>
+          <column_name>project_date_id</column_name>
+          <stream_name>project_date_id</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -267,7 +311,7 @@
            <schema_name/>
            </partitioning>
     <connection>SourceForge Local</connection>
-    <sql>SELECT distinct&#xd;&#xa;&#xd;&#xa;	sf_projects.proj_unixname,&#xd;&#xa;	sf_projects.proj_long_name as project_long_name, &#xd;&#xa;	sf_projects.dev_count as developers_count,&#xd;&#xa;	sf_project_description.description as description,&#xd;&#xa;	sf_projects.url as proj_url, &#xd;&#xa;	sf_projects.date_registered as proj_date,&#xd;&#xa;	sf_project_programming_language.code as lang_code, &#xd;&#xa;	sf_project_operating_system.code as os_code,&#xd;&#xa;	sf_project_intended_audience.code as audience_code,&#xd;&#xa;	sf_project_licenses.code as license_code&#xd;&#xa;&#xd;&#xa;FROM sf_projects&#xd;&#xa;&#xd;&#xa;    JOIN sf_project_description&#xd;&#xa;        ON sf_projects.proj_unixname &#x3d; sf_project_description.proj_unixname&#xd;&#xa;    JOIN sf_project_programming_language&#xd;&#xa;        ON sf_projects.proj_unixname &#x3d; sf_project_programming_language.proj_unixname&#xd;&#xa;    JOIN sf_project_operating_system&#xd;&#xa;        ON sf_projects.proj_unixname &#x3d; sf_project_operating_system.proj_unixname&#xd;&#xa;	JOIN sf_project_intended_audience&#xd;&#xa;        ON sf_projects.proj_unixname &#x3d; sf_project_intended_audience.proj_unixname&#xd;&#xa;	JOIN sf_project_licenses&#xd;&#xa;        ON sf_projects.proj_unixname &#x3d; sf_project_licenses.proj_unixname</sql>
+    <sql>SELECT distinct&#xd;&#xa;&#xd;&#xa;	sf_projects.proj_unixname,&#xd;&#xa;	sf_projects.proj_long_name as project_long_name, &#xd;&#xa;	sf_projects.dev_count as developers_count,&#xd;&#xa;	sf_project_description.description as description,&#xd;&#xa;	sf_projects.url as proj_url, &#xd;&#xa;	sf_projects.date_registered as proj_date,&#xd;&#xa;	sf_project_programming_language.code as lang_code, &#xd;&#xa;	sf_project_operating_system.code as os_code,&#xd;&#xa;	sf_project_intended_audience.code as audience_code,&#xd;&#xa;	sf_project_licenses.code as license_code&#xd;&#xa;&#xd;&#xa;FROM sf_projects&#xd;&#xa;&#xd;&#xa;    LEFT JOIN sf_project_description&#xd;&#xa;        ON sf_projects.proj_unixname &#x3d; sf_project_description.proj_unixname&#xd;&#xa;    LEFT JOIN sf_project_programming_language&#xd;&#xa;        ON sf_projects.proj_unixname &#x3d; sf_project_programming_language.proj_unixname&#xd;&#xa;    LEFT JOIN sf_project_operating_system&#xd;&#xa;        ON sf_projects.proj_unixname &#x3d; sf_project_operating_system.proj_unixname&#xd;&#xa;	LEFT JOIN sf_project_intended_audience&#xd;&#xa;        ON sf_projects.proj_unixname &#x3d; sf_project_intended_audience.proj_unixname&#xd;&#xa;	LEFT JOIN sf_project_licenses&#xd;&#xa;        ON sf_projects.proj_unixname &#x3d; sf_project_licenses.proj_unixname&#xd;&#xa;&#xd;&#xa;GROUP BY sf_projects.proj_unixname</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -310,7 +354,7 @@
       </key>
       <value>
         <name>id</name>
-        <rename>project_intended_audience_id</rename>
+        <rename>project_intended_audiences_id</rename>
         <default/>
         <type>Integer</type>
       </value>
