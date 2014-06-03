@@ -223,6 +223,88 @@
   <hop> <from>date lookup</from><to>Insert &#x2f; Update</to><enabled>Y</enabled> </hop>
   </order>
   <step>
+    <name>Insert &#x2f; Update</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>Datawarehouse</connection>
+    <commit>100</commit>
+    <update_bypassed>Y</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>projects</table>
+      <key>
+        <name>proj_unixname</name>
+        <field>project_unixname</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>project_long_name</name>
+        <rename>project_long_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>project_unixname</name>
+        <rename>proj_unixname</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>developers_count</name>
+        <rename>developers_count</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>description</name>
+        <rename>description</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>project_programming_languages_id</name>
+        <rename>project_programming_languages_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>project_operating_systems_id</name>
+        <rename>project_operating_systems_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>project_intended_audiences_id</name>
+        <rename>project_intended_audiences_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>project_licenses_id</name>
+        <rename>project_licenses_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>project_sources_id</name>
+        <rename>project_sources_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>project_date_id</name>
+        <rename>project_date_id</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>107</xloc>
+      <yloc>361</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>SourceForge local</name>
     <type>TableInput</type>
     <description/>
@@ -436,7 +518,7 @@
         <name>id</name>
         <rename>project_programming_languages_id</rename>
         <default/>
-        <type>None</type>
+        <type>Integer</type>
       </value>
     </lookup>
      <cluster_schema/>
@@ -520,7 +602,7 @@
         <name>id</name>
         <rename>project_operating_systems_id</rename>
         <default/>
-        <type>None</type>
+        <type>Integer</type>
       </value>
     </lookup>
      <cluster_schema/>
@@ -569,88 +651,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>487</xloc>
       <yloc>366</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Insert &#x2f; Update</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>Datawarehouse</connection>
-    <commit>100</commit>
-    <update_bypassed>Y</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>projects</table>
-      <key>
-        <name>proj_unixname</name>
-        <field>project_unixname</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>project_long_name</name>
-        <rename>project_long_name</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>project_unixname</name>
-        <rename>proj_unixname</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>developers_count</name>
-        <rename>developers_count</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>description</name>
-        <rename>description</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>project_programming_languages_id</name>
-        <rename>project_programming_languages_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>project_operating_systems_id</name>
-        <rename>project_operating_systems_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>project_intended_audiences_id</name>
-        <rename>project_intended_audiences_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>project_licenses_id</name>
-        <rename>project_licenses_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>project_sources_id</name>
-        <rename>project_sources_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>project_date_id</name>
-        <rename>project_date_id</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>107</xloc>
-      <yloc>361</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
