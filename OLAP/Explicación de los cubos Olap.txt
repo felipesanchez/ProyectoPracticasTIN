@@ -1,0 +1,40 @@
+1. (numerodeproyectoylenguajeensistemaoperativoyanio)
+-- Número de proyectos según el año y su lenguaje de programación por sistemas operativos.
+
+Fila: Número de proyectos, Lenguaje de Programación y año
+Columnas: Sistema operativo.
+
+2. 
+-- Número de desarrolladores por audiencia del proyecto según la forja fuente y su tipo de licencia.
+Filas: Forja fuente, Tipo de licencia.
+Columnas: Número de desarrolladores, Audiencia del proyecto
+
+3. 
+-- Número de proyectos por mes y lenguaje de programacion según Forja fuente.
+Fila: Forja fuente
+Columnas: Número de proyectos, Mes y Lenguaje de programación.
+
+4.
+-- Número de proyectos Según el día del mes, en que forja se ha trabajado con que licencia y que lenguaje de programación
+
+Fila: N. proyectos, Día
+Columnas: Forja, Licencia y Lenguaje
+
+5.
+-- Número de proyectos por forja
+
+Columna: Forja
+Fila: Número de proyecto
+
+6.
+-- Número de desarrolladores por forja
+
+Columa: Desarrolladores
+Fila: Forja
+
+7.
+-- Desarrolladores por forja y lenguaje de programación
+
+Columna: Forja, Lenguaje
+Fila: Desarrolladores
+
