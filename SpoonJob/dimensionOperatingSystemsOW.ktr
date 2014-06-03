@@ -212,7 +212,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>OW operating system</from><to>project_operating_systems</to><enabled>N</enabled> </hop>
+  <hop> <from>OW operating system</from><to>project_operating_systems</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>OW operating system</name>

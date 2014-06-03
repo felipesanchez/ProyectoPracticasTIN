@@ -19,7 +19,7 @@
     <database>proyectotin</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+    <password>Encrypted 2be98afc86aa7f2e4ae0ba27fd59dfe8e</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -73,7 +73,7 @@
     <database>ow</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+    <password>Encrypted 2be98afc86aa7f2e4ae0ba27fd59dfe8e</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
