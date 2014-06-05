@@ -1,5 +1,5 @@
 1.InformePublico
-Informe de proyectos por público.
+Informe de proyectos por públicos divididos en sistema operativos.
 
 2.InformeSistemaOperativo
 Informe proyectos por Sistemas operativos
