@@ -1,0 +1,11 @@
+1.InformePublico
+Informe de proyectos por público.
+
+2.InformeSistemaOperativo
+Informe proyectos por Sistemas operativos
+
+3.InformeForjaLicencia
+Informe de proyectos por Forjas y en cada su Licencia 
+
+4.InformeAnioLenguaje
+Informe de proyectos por Forja, Lenguaje de Programación y AñoInf
