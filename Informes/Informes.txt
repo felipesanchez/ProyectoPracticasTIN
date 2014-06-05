@@ -1,11 +1,11 @@
 1.InformePublico
-Informe de proyectos por públicos divididos en sistema operativos.
+Informe de proyectos por Públicos divididos en Sistema operativos.
 
 2.InformeSistemaOperativo
-Informe proyectos por Sistemas operativos
+Informe proyectos por Sistemas operativos y Lenguaje de programación.
 
 3.InformeForjaLicencia
 Informe de proyectos por Forjas y en cada su Licencia 
 
 4.InformeAnioLenguaje
-Informe de proyectos por Forja, Lenguaje de Programación y AñoInf
+Informe de proyectos por Forja, Lenguaje de Programación y Año
