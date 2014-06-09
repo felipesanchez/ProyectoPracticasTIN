@@ -1,0 +1,65 @@
+<Schema name="CuboTin">
+  <Dimension name="Project date">
+    <Hierarchy name="Day" hasAll="true" primaryKey="id">
+      <Table name="project_date" schema="proyectotin"/>
+      <Level name="Day" uniqueMembers="false" column="day" type="Numeric">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="Month" hasAll="true" primaryKey="id">
+      <Table name="project_date" schema="proyectotin"/>
+      <Level name="Month" uniqueMembers="false" column="month" type="Numeric">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="Year" hasAll="true" primaryKey="id">
+      <Table name="project_date" schema="proyectotin"/>
+      <Level name="Year" uniqueMembers="false" column="year" type="Numeric">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="Project intended audiences">
+    <Hierarchy name="intended audiences" hasAll="true" primaryKey="id">
+      <Table name="project_intended_audiences" schema="proyectotin"/>
+      <Level name="Description" uniqueMembers="false" column="description" type="String">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="Project licenses">
+    <Hierarchy name="Licenses" hasAll="true" primaryKey="id">
+      <Table name="project_licenses" schema="proyectotin"/>
+      <Level name="Description" uniqueMembers="false" column="description" type="String">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="Project operating systems">
+    <Hierarchy name="Operating Systems" hasAll="true" primaryKey="id">
+      <Table name="project_operating_systems" schema="proyectotin"/>
+      <Level name="Description" uniqueMembers="false" column="description" type="String">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="Project programming languages">
+    <Hierarchy name="Programming languages" hasAll="true" primaryKey="id">
+      <Table name="project_programming_languages" schema="proyectotin"/>
+      <Level name="Description" uniqueMembers="false" column="description" type="String">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="Project sources">
+    <Hierarchy name="Project source" hasAll="true" primaryKey="id">
+      <Table name="project_sources" schema="proyectotin"/>
+      <Level name="Project source name" uniqueMembers="false" column="project_source_name" type="String">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="CuboTin">
+    <Table name="projects" schema="proyectotin"/>
+    <DimensionUsage name="Project date" source="Project date" foreignKey="project_date_id"/>
+    <DimensionUsage name="Project intended audiences" source="Project intended audiences" foreignKey="project_intended_audiences_id"/>
+    <DimensionUsage name="Project licenses" source="Project licenses" foreignKey="project_licenses_id"/>
+    <DimensionUsage name="Project operating systems" source="Project operating systems" foreignKey="project_operating_systems_id"/>
+    <DimensionUsage name="Project programming languages" source="Project programming languages" foreignKey="project_programming_languages_id"/>
+    <DimensionUsage name="Project sources" source="Project sources" foreignKey="project_sources_id"/>
+    <Measure name="Developers count" column="developers_count" aggregator="sum" formatString="&#x23;"/>
+    <Measure name="Projects count" column="project_id" aggregator="count" formatString="&#x23;"/>
+  </Cube>
+</Schema>
