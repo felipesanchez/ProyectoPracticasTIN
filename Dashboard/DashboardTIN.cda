@@ -3,36 +3,36 @@
    <DataSources>
       <Connection id="yearProject" type="mondrian.jndi">
          <Catalog>mondrian:/CuboTin</Catalog>
-         <Jndi>datawarehouse</Jndi>
+         <Jndi>DataWarehouse</Jndi>
       </Connection>
       <Connection id="Devyear" type="mondrian.jndi">
          <Catalog>mondrian:/CuboTin</Catalog>
-         <Jndi>datawarehouse</Jndi>
+         <Jndi>DataWarehouse</Jndi>
       </Connection>
       <Connection id="ProyectyearsGroup" type="mondrian.jndi">
          <Catalog>mondrian:/CuboTin</Catalog>
-         <Jndi>datawarehouse</Jndi>
+         <Jndi>DataWarehouse</Jndi>
       </Connection>
       <Connection id="NumProjectforyear" type="mondrian.jndi">
          <Catalog>mondrian:/CuboTin</Catalog>
-         <Jndi>datawarehouse</Jndi>
+         <Jndi>DataWarehouse</Jndi>
       </Connection>
       <Connection id="ProgramminglangSOforforgeyear" type="mondrian.jndi">
          <Catalog>mondrian:/CuboTin</Catalog>
-         <Jndi>datawarehouse</Jndi>
+         <Jndi>DataWarehouse</Jndi>
       </Connection>
       <Connection id="ProjectForLicenseForYearandSource" type="mondrian.jndi">
          <Catalog>mondrian:/CuboTin</Catalog>
-         <Jndi>datawarehouse</Jndi>
+         <Jndi>DataWarehouse</Jndi>
       </Connection>
       <Connection id="consultaSQLSource" type="sql.jndi">
-         <Jndi>datawarehouse</Jndi>
+         <Jndi>DataWarehouse</Jndi>
       </Connection>
       <Connection id="consultaSQLAudience" type="sql.jndi">
-         <Jndi>datawarehouse</Jndi>
+         <Jndi>DataWarehouse</Jndi>
       </Connection>
       <Connection id="consultaSQLYear" type="sql.jndi">
-         <Jndi>datawarehouse</Jndi>
+         <Jndi>DataWarehouse</Jndi>
       </Connection>
    </DataSources>
    <DataAccess access="public" cache="true" cacheDuration="3600" connection="yearProject"
