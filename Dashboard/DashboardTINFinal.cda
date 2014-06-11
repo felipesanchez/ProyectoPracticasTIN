@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="yearProject" type="mondrian.jndi">
+         <Catalog>mondrian:/CuboTin</Catalog>
+         <Jndi>proyectotin</Jndi>
+      </Connection>
+      <Connection id="Devyear" type="mondrian.jndi">
+         <Catalog>mondrian:/CuboTin</Catalog>
+         <Jndi>proyectotin</Jndi>
+      </Connection>
+      <Connection id="ProyectyearsGroup" type="mondrian.jndi">
+         <Catalog>mondrian:/CuboTin</Catalog>
+         <Jndi>proyectotin</Jndi>
+      </Connection>
+      <Connection id="NumProjectforyear" type="mondrian.jndi">
+         <Catalog>mondrian:/CuboTin</Catalog>
+         <Jndi>proyectotin</Jndi>
+      </Connection>
+      <Connection id="ProgramminglangSOforforgeyear" type="mondrian.jndi">
+         <Catalog>mondrian:/CuboTin</Catalog>
+         <Jndi>proyectotin</Jndi>
+      </Connection>
+      <Connection id="ProjectForLicenseForYearandSource" type="mondrian.jndi">
+         <Catalog>mondrian:/CuboTin</Catalog>
+         <Jndi>proyectotin</Jndi>
+      </Connection>
+      <Connection id="consultaSQLSource" type="sql.jndi">
+         <Jndi>proyectotin</Jndi>
+      </Connection>
+      <Connection id="consultaSQLAudience" type="sql.jndi">
+         <Jndi>proyectotin</Jndi>
+      </Connection>
+      <Connection id="consultaSQLYear" type="sql.jndi">
+         <Jndi>proyectotin</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="yearProject"
+               id="yearProject"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Parameters>
+         <Parameter default="ObjectWeb" name="param_source" type="String"/>
+      </Parameters>
+      <Query>SELECT
+NON EMPTY {Hierarchize({[Measures].[Projects count]})} ON COLUMNS,
+NON EMPTY TopCount({Hierarchize({[Project programming languages.Programming languages].[Description].Members})}, 10) ON ROWS
+FROM [CuboTin]
+WHERE {[Project sources.Project source].[${param_source}]}</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="Devyear"
+               id="Devyear"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Parameters>
+         <Parameter default=" ObjectWeb" name="param_source" type="String"/>
+      </Parameters>
+      <Query>SELECT
+NON EMPTY {Hierarchize({[Measures].[Developers count]})} ON COLUMNS,
+NON EMPTY {Hierarchize({[Project date.Year].[Year].Members})} ON ROWS
+FROM [CuboTin]
+WHERE {[Project sources.Project source].[${param_source}]}</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600"
+               connection="ProyectyearsGroup"
+               id="ProyectyearsGroup"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT
+NON EMPTY {Hierarchize({[Project date.Year].[Year].Members})} ON COLUMNS,
+NON EMPTY CrossJoin({[Measures].[Projects count]}, [Project sources.Project source].[Project source name].Members) ON ROWS
+FROM [CuboTin]</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600"
+               connection="NumProjectforyear"
+               id="NumProjectforyear"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Parameters>
+         <Parameter default="2013" name="param_year" type="Integer"/>
+      </Parameters>
+      <Query>SELECT
+NON EMPTY {Hierarchize({[Measures].[Projects count]})} ON COLUMNS,
+NON EMPTY {Hierarchize({[Project sources.Project source].[Project source name].Members})} ON ROWS
+FROM [CuboTin]
+WHERE {[Project date.Year].[${param_year}]}</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600"
+               connection="ProgramminglangSOforforgeyear"
+               id="ProgramminglangSOforforgeyear"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Parameters>
+         <Parameter default="SourceForge" name="param_source" type="String"/>
+         <Parameter default="Education" name="param_audience" type="String"/>
+      </Parameters>
+      <Query>SELECT
+NON EMPTY {Hierarchize({[Measures].[Developers count]})} ON COLUMNS,
+NON EMPTY topCount(CrossJoin([Project programming languages.Programming languages].[Description].Members, [Project operating systems.Operating Systems].[Description].Members),10) ON ROWS
+FROM [CuboTin]
+WHERE CrossJoin({[Project sources.Project source].[${param_source}]}, {[Project intended audiences.intended audiences].[${param_audience}]})</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600"
+               connection="ProjectForLicenseForYearandSource"
+               id="ProjectForLicenseForYearandSource"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Parameters>
+         <Parameter default="SourceForge" name="param_source" type="String"/>
+         <Parameter default="2013" name="param_year" type="String"/>
+      </Parameters>
+      <Query>SELECT
+NON EMPTY Order(TopCount(CrossJoin([Project programming languages.Programming languages].[Description].Members, {[Measures].[Projects count]}), 5, [Measures].[Projects count]), [Measures].[Projects count], DESC) ON COLUMNS,
+NON EMPTY Order(TopCount({Hierarchize({[Project licenses.Licenses].[Description].Members})}, 5, [Measures].[Projects count]), [Measures].[Projects count], DESC) ON ROWS
+FROM [CuboTin]
+WHERE CrossJoin({[Project sources.Project source].[${param_source}]}, {[Project date.Year].[${param_year}]})</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600"
+               connection="consultaSQLSource"
+               id="consultaSQLSource"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DISTINCT project_source_name FROM project_sources;</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600"
+               connection="consultaSQLAudience"
+               id="consultaSQLAudience"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>select distinct description from project_intended_audiences;</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="consultaSQLYear"
+               id="consultaSQLYear"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT DISTINCT year FROM project_date
+where year != 'null'
+ORDER BY year DESC;</Query>
+   </DataAccess>
+</CDADescriptor>

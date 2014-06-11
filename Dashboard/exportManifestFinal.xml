@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ExportManifest xmlns:ns2="http://www.pentaho.com/schema/">
+    <ExportManifestInformation exportDate="11-06-2014 12:16:33 CEST" exportBy="admin" rootFolder="/home/admin/"/>
+    <ExportManifestEntity path="DashboardTIN.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="DashboardTIN.wcdf" createdDate="2014-06-04T13:26:24.045+02:00" isFolder="false" path="DashboardTIN.wcdf" isHidden="false" locale="es_ES" description="DashboardTIN" title="DashboardTIN"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+</ns2:ExportManifest>
