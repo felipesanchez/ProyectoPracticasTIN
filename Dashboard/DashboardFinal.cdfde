@@ -7701,7 +7701,7 @@
      },
      {
       "name": "jndi",
-      "value": "proyectotin",
+      "value": "DataWarehouse",
       "type": "Jndi"
      },
      {
@@ -7777,7 +7777,7 @@
      },
      {
       "name": "jndi",
-      "value": "proyectotin",
+      "value": "DataWarehouse",
       "type": "Jndi"
      },
      {
@@ -7853,7 +7853,7 @@
      },
      {
       "name": "jndi",
-      "value": "proyectotin",
+      "value": "DataWarehouse",
       "type": "Jndi"
      },
      {
@@ -7929,7 +7929,7 @@
      },
      {
       "name": "jndi",
-      "value": "proyectotin",
+      "value": "DataWarehouse",
       "type": "Jndi"
      },
      {
@@ -8005,7 +8005,7 @@
      },
      {
       "name": "jndi",
-      "value": "proyectotin",
+      "value": "DataWarehouse",
       "type": "Jndi"
      },
      {
@@ -8081,7 +8081,7 @@
      },
      {
       "name": "jndi",
-      "value": "proyectotin",
+      "value": "DataWarehouse",
       "type": "Jndi"
      },
      {
@@ -8171,7 +8171,7 @@
      },
      {
       "name": "jndi",
-      "value": "proyectotin",
+      "value": "DataWarehouse",
       "type": "Jndi"
      },
      {
@@ -8237,7 +8237,7 @@
      },
      {
       "name": "jndi",
-      "value": "proyectotin",
+      "value": "DataWarehouse",
       "type": "Jndi"
      },
      {
@@ -8303,7 +8303,7 @@
      },
      {
       "name": "jndi",
-      "value": "proyectotin",
+      "value": "DataWarehouse",
       "type": "Jndi"
      },
      {
@@ -8353,5 +8353,5 @@
    }
   ]
  },
- "filename": "/home/admin/DashboardTIN.cdfde"
+ "filename": "/home/admin/DashboardFinal.cdfde"
 }
